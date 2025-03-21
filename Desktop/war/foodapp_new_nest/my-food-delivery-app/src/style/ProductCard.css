@@ -1,0 +1,21 @@
+.product-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card img {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .product-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff5722;
+  }
+  

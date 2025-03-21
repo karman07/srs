@@ -1,0 +1,1 @@
+export const BASE_URL_APP = "https://ecome-7.onrender.com"
