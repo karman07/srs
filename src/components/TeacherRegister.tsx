@@ -48,7 +48,7 @@ const TeacherForm: React.FC<Props> = ({ setScreen }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/teachers", teacher);
+      await axios.post("http://147.93.27.245:8001/teachers", teacher);
       setScreen("thankyou"); // Navigate to Thank You screen
     } catch (error) {
       console.error("Error:", error);
