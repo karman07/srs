@@ -32,7 +32,7 @@
     width: 50px;
     height: 50px;
     border: 6px solid rgba(0, 255, 0, 0.2);
-    border-top: 6px solid #00ff00;
+    border-top: 6px solid rgba(0, 255, 0, 0.2);
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
@@ -81,7 +81,7 @@
     width: 50px;
     height: 50px;
     border: 6px solid rgba(0, 255, 0, 0.2);
-    border-top: 6px solid #00ff00;
+    border-top: 6px solid rgba(0, 255, 0, 0.2);
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
