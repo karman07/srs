@@ -34,4 +34,14 @@ export class TeachersService {
     const result = await this.teacherModel.findByIdAndDelete(id).exec();
     if (!result) throw new NotFoundException('Teacher not found');
   }
+
+  async findByBranchAndSemester(branch: string, semester: string) {
+    return this.teacherModel
+      .find({
+        branches: { $in: [branch] }, 
+        semesters: { $in: [semester] }, 
+      })
+      .lean();
+  }
+  
 }
