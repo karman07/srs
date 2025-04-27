@@ -4,18 +4,25 @@ import { Model } from 'mongoose';
 import { Review, ReviewDocument } from './schemas/review.schema';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
-import { TeachersService } from '../teachers/teachers.service';
+import { EdaService } from '../eda/eda.service';
 
 @Injectable()
 export class ReviewsService {
   constructor(
     @InjectModel(Review.name) private reviewModel: Model<ReviewDocument>,
-    private readonly teachersService: TeachersService
+    private readonly edaService: EdaService, 
   ) {}
 
   async create(createReviewDto: CreateReviewDto): Promise<Review> {
     const review = new this.reviewModel(createReviewDto);
     const savedReview = await review.save();
+
+    // After review is saved, update Eda with the new review data
+    await this.edaService.updateEda(
+      savedReview.teacherId,
+      savedReview.subject,
+      savedReview.branch
+    );
 
     return savedReview;
   }
@@ -33,6 +40,14 @@ export class ReviewsService {
   async update(id: string, updateReviewDto: UpdateReviewDto): Promise<Review> {
     const review = await this.reviewModel.findByIdAndUpdate(id, updateReviewDto, { new: true }).exec();
     if (!review) throw new NotFoundException('Review not found');
+    
+    // After updating the review, update Eda with the new review data
+    await this.edaService.updateEda(
+      review.teacherId,
+      review.subject,
+      review.branch
+    );
+
     return review;
   }
 

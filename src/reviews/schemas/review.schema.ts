@@ -14,8 +14,11 @@ export class Review {
   @Prop({ required: true })
   subject: string;
 
-  @Prop({ required: true, type: [{ questionId: String, rating: Number }] })
-  ratings: { questionId: string; rating: number }[];
+  @Prop({required: true})
+  branch: string;
+
+  @Prop({ required: true, type: [{ rating: Number }] })
+  ratings: { rating: number }[];
 
   @Prop({ required: true })
   overallFeedback: string;

@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { QuestionsModule } from './questions/questions.module';
+import { ReviewsModule } from './reviews/reviews.module';
 // import { ReviewsModule } from './reviews/reviews.module';
 // import { AdminModule } from './admin/admin.module';
 
@@ -15,7 +16,8 @@ import { QuestionsModule } from './questions/questions.module';
     AuthModule, 
     UserModule, 
     TeachersModule, 
-    QuestionsModule
+    QuestionsModule,
+    ReviewsModule
     // ReviewsModule, // ✅ Reviews & Ratings Module
     // AdminModule, // ✅ Admin Management Module
   ],
