@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { QuestionsModule } from './questions/questions.module';
 import { ReviewsModule } from './reviews/reviews.module';
+import { EdaModule } from './eda/eda.module';
 // import { ReviewsModule } from './reviews/reviews.module';
 // import { AdminModule } from './admin/admin.module';
 
@@ -17,7 +18,8 @@ import { ReviewsModule } from './reviews/reviews.module';
     UserModule, 
     TeachersModule, 
     QuestionsModule,
-    ReviewsModule
+    ReviewsModule,
+    EdaModule
     // ReviewsModule, // ✅ Reviews & Ratings Module
     // AdminModule, // ✅ Admin Management Module
   ],

@@ -56,4 +56,10 @@ export class TeachersController {
 
     return formattedTeachers;
   }
+
+  @Get('all/teachers')
+  findAllTeachers() {
+    return this.teachersService.findAll();
+  }
+
 }

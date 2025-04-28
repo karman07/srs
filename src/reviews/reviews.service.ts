@@ -27,6 +27,17 @@ export class ReviewsService {
     return savedReview;
   }
 
+  async findByBranchSubjectTeacher(branch: string, subject: string, teacherId: string): Promise<Review[]> {
+    const query: any = {};
+  
+    if (branch) query.branch = branch;
+    if (subject) query.subject = subject;
+    if (teacherId) query.teacherId = teacherId;
+  
+    return this.reviewModel.find(query).exec();
+  }
+  
+
   async findAll(): Promise<Review[]> {
     return this.reviewModel.find().exec();
   }

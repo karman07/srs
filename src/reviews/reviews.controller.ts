@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
@@ -11,6 +11,16 @@ export class ReviewsController {
   create(@Body() createReviewDto: CreateReviewDto) {
     return this.reviewsService.create(createReviewDto);
   }
+
+  @Get('filter') 
+  findByBranchSubjectTeacher(
+    @Query('branch') branch: string,
+    @Query('subject') subject: string,
+    @Query('teacherId') teacherId: string,
+  ) {
+    return this.reviewsService.findByBranchSubjectTeacher(branch, subject, teacherId);
+  }
+
 
   @Get()
   findAll() {
