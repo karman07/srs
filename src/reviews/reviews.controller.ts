@@ -21,6 +21,17 @@ export class ReviewsController {
     return this.reviewsService.findByBranchSubjectTeacher(branch, subject, teacherId);
   }
 
+  @Get('filterReview')
+  filterReview(
+    @Query('branch') branch: string,
+    @Query('subject') subject: string,
+    @Query('teacherId') teacherId: string,
+    @Query('studentId') studentId: string,
+  ) {
+    console.log(branch, subject, teacherId, studentId)
+    return this.reviewsService.filterReview(branch, subject, teacherId, studentId);
+  }
+
 
   @Get()
   findAll() {

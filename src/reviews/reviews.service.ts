@@ -66,4 +66,21 @@ export class ReviewsService {
     const result = await this.reviewModel.findByIdAndDelete(id).exec();
     if (!result) throw new NotFoundException('Review not found');
   }
+
+  async filterReview(
+    branch?: string,
+    subject?: string,
+    teacherId?: string,
+    studentId?: string,
+  ): Promise<Review[]> {
+    const query: any = {};
+
+    if (branch) query.branch = branch;
+    if (subject) query.subject = subject;
+    if (teacherId) query.teacherId = teacherId;
+    if (studentId) query.studentId = studentId;
+
+    return this.reviewModel.find(query).exec();
+  }
+
 }
