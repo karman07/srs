@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Quizoo",
+    "slug": "Quizoo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/main_logo.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/main_logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/main_logo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.karman_singh_01.Quizoo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1defdac9-9d0b-4faf-9ae2-9fc2922595db"
+      }
+    }
+  }
+}
