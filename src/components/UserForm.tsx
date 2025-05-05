@@ -122,12 +122,12 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
                       required
                     >
                       <option value="">Select Semester</option>
-                      <option value="1st">1st</option>
-                      <option value="2nd">2nd</option>
-                      <option value="3rd">3rd</option>
-                      <option value="4th">4th</option>
-                      <option value="5th">5th</option>
-                      <option value="6th">6th</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
                     </select>
                     {errors.semester && <p className="text-danger">{errors.semester}</p>}
                   </div>
