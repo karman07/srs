@@ -6,7 +6,7 @@ import ThankYouPage from "./components/ThankYouPage";
 const App: React.FC = () => {
   const [isSplashFinished, setIsSplashFinished] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
-
+  localStorage.clear()
   useEffect(() => {
     const registeredUser = localStorage.getItem("userRegistered");
     if (registeredUser) {

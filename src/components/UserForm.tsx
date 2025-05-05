@@ -103,11 +103,11 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
                       required
                     >
                       <option value="">Select Branch</option>
-                      <option value="Computer Science">Computer Science</option>
+                      <option value="CSE">CSE</option>
                       <option value="Electrical">Electrical</option>
                       <option value="Mechanical">Mechanical</option>
                       <option value="Civil">Civil</option>
-                      <option value="Architecture">Architecture</option>
+                      <option value="Architectural">Architecture</option>
                     </select>
                     {errors.branch && <p className="text-danger">{errors.branch}</p>}
                   </div>
