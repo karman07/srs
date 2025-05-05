@@ -33,7 +33,7 @@ export class TeachersController {
     return this.teachersService.remove(id);
   }
 
-  // ✅ Added API to find teachers based on branch and semester
+  
   @Get()
   async findByBranchAndSemester(@Query('branch') branch: string, @Query('semester') semester: string) {
     const teachers = await this.teacherModel.find({
