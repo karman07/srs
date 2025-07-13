@@ -1,0 +1,35 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.loading-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
