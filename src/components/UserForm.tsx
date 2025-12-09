@@ -103,7 +103,8 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
                       required
                     >
                       <option value="">Select Branch</option>
-                      <option value="CSE">CSE</option>
+                      <option value="CSE-A">CSE-A</option>
+                      <option value="CSE-B">CSE-B</option>
                       <option value="Electrical">Electrical</option>
                       <option value="Mechanical">Mechanical</option>
                       <option value="Civil">Civil</option>
