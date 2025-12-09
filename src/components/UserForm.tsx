@@ -51,7 +51,7 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
 
     setLoading(true);
     try {
-      await axios.post(`http://93.127.194.249:3000/auth/register`, user);
+      await axios.post(`https://srsbackend.dine3d.com/auth/register`, user);
       alert("User registered successfully!");
       localStorage.setItem("userRegistered", "true");
       onRegister();
