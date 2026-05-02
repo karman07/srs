@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import axios from "axios";
@@ -11,6 +11,11 @@ interface User {
   dob: string;
   branch: string;
   semester: string;
+}
+
+interface AcademicOptionsResponse {
+  branches: string[];
+  semesters: string[];
 }
 
 const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
@@ -26,6 +31,24 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
 
   const [errors, setErrors] = useState<Partial<User>>({});
   const [loading, setLoading] = useState(false);
+  const [branchOptions, setBranchOptions] = useState<string[]>([]);
+  const [semesterOptions, setSemesterOptions] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchAcademicOptions = async () => {
+      try {
+        const { data } = await axios.get<AcademicOptionsResponse>(
+          `${import.meta.env.VITE_BACKEND_URL}/auth/academic-options`,
+        );
+        setBranchOptions(data.branches ?? []);
+        setSemesterOptions(data.semesters ?? []);
+      } catch (error) {
+        console.error("Failed to load academic options:", error);
+      }
+    };
+
+    fetchAcademicOptions();
+  }, []);
 
   const validate = () => {
     const newErrors: Partial<User> = {};
@@ -51,7 +74,7 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
 
     setLoading(true);
     try {
-      await axios.post(`https://srsbackend.dine3d.com/auth/register`, user);
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/register`, user);
       alert("User registered successfully!");
       localStorage.setItem("userRegistered", "true");
       onRegister();
@@ -103,12 +126,11 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
                       required
                     >
                       <option value="">Select Branch</option>
-                      <option value="CSE-A">CSE-A</option>
-                      <option value="CSE-B">CSE-B</option>
-                      <option value="Electrical">Electrical</option>
-                      <option value="Mechanical">Mechanical</option>
-                      <option value="Civil">Civil</option>
-                      <option value="Architecture">Architecture</option>
+                      {branchOptions.map((branch) => (
+                        <option key={branch} value={branch}>
+                          {branch}
+                        </option>
+                      ))}
                     </select>
                     {errors.branch && <p className="text-danger">{errors.branch}</p>}
                   </div>
@@ -123,12 +145,11 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
                       required
                     >
                       <option value="">Select Semester</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
+                      {semesterOptions.map((semester) => (
+                        <option key={semester} value={semester}>
+                          {semester}
+                        </option>
+                      ))}
                     </select>
                     {errors.semester && <p className="text-danger">{errors.semester}</p>}
                   </div>
