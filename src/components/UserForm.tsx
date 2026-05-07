@@ -41,12 +41,7 @@ const UserForm: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
           `${import.meta.env.VITE_BACKEND_URL}/auth/academic-options`,
         );
         setBranchOptions(data.branches ?? []);
-        const semesters = data.semesters ?? [];
-        // Ensure 6th semester is included
-        if (!semesters.includes("6")) {
-          semesters.push("6");
-        }
-        setSemesterOptions(semesters);
+        setSemesterOptions(data.semesters ?? []);
       } catch (error) {
         console.error("Failed to load academic options:", error);
       }
