@@ -10,6 +10,7 @@ export const BRANCH_OPTIONS = [
 export const SEMESTER_OPTIONS = [
   '2nd',
   '4th',
+  '6th',
 ] as const;
 
 export const ACADEMIC_OPTIONS = {
